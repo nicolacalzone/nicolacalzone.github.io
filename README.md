@@ -6,7 +6,7 @@ Personal portfolio — plain HTML/CSS/JS, no build step, served by GitHub Pages.
 Everything (bio, experience, projects, skills, education, certificates) lives in [`assets/js/data.js`](assets/js/data.js).
 Links set to `"#"` are placeholders marked `// TODO` and are hidden on the page until you fill them in.
 
-To update the CV, replace `Nicola_Calzone_CV_English.pdf` in the repo root.
+To update the CV, replace `CV_Nicola Calzone.pdf` in the repo root.
 
 ## Run locally
 ```bash

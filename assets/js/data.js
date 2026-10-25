@@ -11,7 +11,7 @@ window.SITE = {
     email: "nicolacalzone14@gmail.com",
     github: "https://github.com/nicolacalzone",
     linkedin: "https://www.linkedin.com/in/nicolacalzone/",
-    cv: "Nicola_Calzone_CV_English.pdf",
+    cv: "CV_Nicola Calzone.pdf",
     now: "ML Engineer @ AlfaGroup",
     focus: ["fraud detection", "generative models", "RAG & agents", "NLP"],
   },
