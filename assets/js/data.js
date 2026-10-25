@@ -94,7 +94,10 @@ window.SITE = {
       description:
         "Pre-training Transformers on automatically generated synthetic languages to test whether they can learn synchronous context-free grammars and other formal languages across the Chomsky hierarchy — with an encoder-only acceptor and a seq2seq translator.",
       tags: ["PyTorch", "Fairseq", "Formal languages", "NLTK"],
-      links: [{ label: "Code", url: "https://github.com/nicolacalzone/cfl_gen" }],
+      links: [
+        { label: "Code", url: "https://github.com/nicolacalzone/cfl_gen" },
+        { label: "Thesis", url: "https://drive.google.com/file/d/15-P9-z8ciu9YR4aV2jvXegaLlPrr1HXh/view?usp=sharing" },
+      ],
     },
     {
       title: "Harry Potter RAG Chatbot",
@@ -139,7 +142,7 @@ window.SITE = {
       description:
         "A multi-agent system that handles bookings for restaurants, salons and similar businesses — agents coordinate availability, preferences and confirmations.",
       tags: ["Multi-agent", "Agentic AI", "LLMs"],
-      links: [{ label: "Code", url: "#" }], // TODO
+      links: [{ label: "Code", url: "https://github.com/nicolacalzone/secretary_agent" }],
     },
     {
       title: "NLTK: SCFG Generation & Parsing",
@@ -148,7 +151,7 @@ window.SITE = {
       description:
         "Contribution to the Natural Language Toolkit adding support for generating and parsing synchronous context-free grammars, born out of the thesis tooling.",
       tags: ["Python", "NLTK", "Open source"],
-      links: [{ label: "GitHub", url: "#" }], // TODO
+      links: [{ label: "GitHub", url: "https://github.com/nicolacalzone/nltk/" }],
     },
   ],
 
@@ -167,7 +170,7 @@ window.SITE = {
       category: "ai",
       description: "Competition entry on detecting fraudulent transactions with machine learning.",
       tags: ["ML", "Fraud detection"],
-      links: [],
+      links: [{ label: "Challenge", url: "https://challenges.reply.com/challenges/ai-agent/home/" }],
     },
     {
       title: "Deep Learning Competitions",
@@ -175,7 +178,7 @@ window.SITE = {
       category: "ai",
       description: "Model-building competitions from deep learning coursework.",
       tags: ["PyTorch", "Deep learning"],
-      links: [{ label: "Code", url: "#" }], // TODO
+      links: [{ label: "Code", url: "https://github.com/nicolacalzone/deep_learning_projects" }],
     },
     {
       title: "Russian Dependency Parser",
@@ -287,7 +290,6 @@ window.SITE = {
       school: "Liceo Classico P. Giannone",
       place: "Italy",
       grade: "GPA 3.7 / 4.0",
-      note: "Honorable mention in the Greek Translation Olympiad; twice a participant in the Latin Translation Olympiad.",
     },
   ],
 
@@ -295,12 +297,12 @@ window.SITE = {
     { issuer: "NVIDIA", title: "Fundamentals of Deep Learning for Computer Vision", url: "https://learn.nvidia.com/certificates?id=4d5fe8d85b1c49a18972e1157c597ae5" },
     { issuer: "NVIDIA", title: "Fundamentals of Deep Learning for Multiple Data Types", url: "https://learn.nvidia.com/certificates?id=9f3550b8b89d46f6bb1146f03fb8c9bb" },
     { issuer: "NVIDIA", title: "Fundamentals of Deep Learning for NLP", url: "https://learn.nvidia.com/certificates?id=6185c11324d7462a813976e1b2427a29" },
-    { issuer: "Kaggle · Google", title: "AI Agents Intensive Course" },
+    { issuer: "Kaggle · Google", title: "AI Agents Intensive Course", url: "https://www.kaggle.com/certification/badges/nicolacalzone/105" },
     { issuer: "GitHub", title: "GitHub Foundations" },
-    { issuer: "Anthropic", title: "Introduction to Model Context Protocol" },
-    { issuer: "Anthropic", title: "MCP: Advanced Topics" },
-    { issuer: "Anthropic", title: "Introduction to Agent Skills" },
-    { issuer: "Anthropic", title: "Introduction to Subagents" },
-    { issuer: "Anthropic", title: "Claude Code 101" },
+    { issuer: "Anthropic", title: "Introduction to Model Context Protocol", url: "https://academy.claude.com/verify/64565eed10fd9588f5431d01127b3a6a" },
+    { issuer: "Anthropic", title: "MCP: Advanced Topics", url: "https://academy.claude.com/verify/00d87be051ebe9cd8f3d944d60fe1142" },
+    { issuer: "Anthropic", title: "Introduction to Agent Skills", url: "https://academy.claude.com/verify/00d87be051ebe9cd8f3d944d60fe1142" },
+    { issuer: "Anthropic", title: "Introduction to Subagents", url: "https://academy.claude.com/verify/fb49037ceff54fb7b78a2746c4d19f84" },
+    { issuer: "Anthropic", title: "Claude Code 101", url: "https://academy.claude.com/verify/fb49037ceff54fb7b78a2746c4d19f84" },
   ],
 };
