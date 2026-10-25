@@ -1,7 +1,153 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="refresh" content="2;url=https://nicola-calzone-hcvysw3.gamma.site/" />
-<title>Nicola Calzone</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nicola Calzone — Software & AI Engineer</title>
+  <meta name="description" content="Nicola Calzone — Software & AI Engineer. Machine learning, RAG and agentic systems, NLP research and backend engineering." />
+  <meta name="theme-color" content="#0b0d10" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nicola Calzone — Software & AI Engineer" />
+  <meta property="og:description" content="ML models, RAG & agentic systems, NLP research and reliable backends." />
+  <meta property="og:url" content="https://nicolacalzone.github.io/" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body> Hello World! </body>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#top" aria-label="Nicola Calzone — back to top">
+        <span class="nav__prompt">nc@portfolio</span><span class="nav__path">:~$</span><span class="cursor" aria-hidden="true"></span>
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn--ghost btn--sm" data-cv href="Nicola_Calzone_CV_English.pdf" download>CV <span aria-hidden="true">↓</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-bind="now"></span></p>
+        <h1 id="hero-title" class="hero__title">
+          <span data-bind="name">Nicola Calzone</span>
+          <span class="hero__role" data-bind="role">Software & AI Engineer</span>
+        </h1>
+        <p class="hero__tagline" data-bind="tagline"></p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">View projects</a>
+          <a class="btn btn--ghost" data-cv href="Nicola_Calzone_CV_English.pdf" download>Download CV</a>
+        </div>
+        <ul class="social" data-render="social" aria-label="Profiles"></ul>
+      </div>
+
+      <div class="terminal" aria-label="Quick facts" role="group">
+        <div class="terminal__bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <span class="terminal__title">~/nicola — zsh</span>
+        </div>
+        <div class="terminal__body" data-render="terminal"></div>
+      </div>
+    </section>
+
+    <section class="section container" id="about" aria-labelledby="about-title">
+      <header class="section__head">
+        <p class="section__index">01 /</p>
+        <h2 id="about-title">About</h2>
+      </header>
+      <div class="about" data-render="about"></div>
+    </section>
+
+    <section class="section container" id="experience" aria-labelledby="experience-title">
+      <header class="section__head">
+        <p class="section__index">02 /</p>
+        <h2 id="experience-title">Experience</h2>
+      </header>
+      <ol class="timeline" data-render="experience"></ol>
+      <h3 class="subhead">Also</h3>
+      <div class="mini-grid" data-render="additional"></div>
+    </section>
+
+    <section class="section container" id="projects" aria-labelledby="projects-title">
+      <header class="section__head">
+        <p class="section__index">03 /</p>
+        <h2 id="projects-title">Projects &amp; Research</h2>
+      </header>
+      <div class="filters" role="toolbar" aria-label="Filter projects" data-render="filters"></div>
+      <div class="cards" data-render="featured"></div>
+      <h3 class="subhead">Archive</h3>
+      <ul class="archive" data-render="archive"></ul>
+      <p class="sr-only" role="status" aria-live="polite" data-filter-status></p>
+      <p class="empty" data-empty hidden>No projects in this category yet.</p>
+    </section>
+
+    <section class="section container" id="skills" aria-labelledby="skills-title">
+      <header class="section__head">
+        <p class="section__index">04 /</p>
+        <h2 id="skills-title">Skills</h2>
+      </header>
+      <div class="skills" data-render="skills"></div>
+    </section>
+
+    <section class="section container" id="education" aria-labelledby="education-title">
+      <header class="section__head">
+        <p class="section__index">05 /</p>
+        <h2 id="education-title">Education &amp; Certificates</h2>
+      </header>
+      <div class="edu-grid">
+        <ol class="edu" data-render="education"></ol>
+        <div>
+          <h3 class="subhead subhead--flush">Certificates</h3>
+          <ul class="certs" data-render="certificates"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container contact" id="contact" aria-labelledby="contact-title">
+      <p class="section__index">06 /</p>
+      <h2 id="contact-title" class="contact__title">Let's build something.</h2>
+      <p class="contact__text">I'm open to Software, ML and AI Engineering roles across Europe. The fastest way to reach me is email.</p>
+      <a class="btn btn--primary btn--lg" data-bind-href="mailto" href="mailto:nicolacalzone14@gmail.com">nicolacalzone14@gmail.com</a>
+      <ul class="social social--center" data-render="social" aria-label="Profiles"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span data-year>2026</span> Nicola Calzone</p>
+      <p class="mono">built by hand · html / css / js</p>
+    </div>
+  </footer>
+
+  <noscript>
+    <div class="container noscript">
+      <p>This site renders its content with JavaScript. You can reach Nicola at
+        <a href="mailto:nicolacalzone14@gmail.com">this email</a>, on
+        <a href="https://github.com/nicolacalzone">GitHub</a> or
+        <a href="https://www.linkedin.com/in/nicolacalzone/">LinkedIn</a>, or
+        <a href="Nicola_Calzone_CV_English.pdf">download the CV</a>.</p>
+    </div>
+  </noscript>
+</body>
 </html>
