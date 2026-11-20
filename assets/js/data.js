@@ -7,7 +7,6 @@ window.SITE = {
     role: "Software & AI Engineer",
     tagline:
       "I build machine-learning systems, from the data and the models to the software around them.",
-    location: "Italy",
     email: "nicolacalzone14@gmail.com",
     github: "https://github.com/nicolacalzone",
     linkedin: "https://www.linkedin.com/in/nicolacalzone/",
@@ -256,7 +255,6 @@ window.SITE = {
     { issuer: "NVIDIA", title: "Fundamentals of Deep Learning for Multiple Data Types", url: "https://learn.nvidia.com/certificates?id=9f3550b8b89d46f6bb1146f03fb8c9bb" },
     { issuer: "NVIDIA", title: "Fundamentals of Deep Learning for NLP", url: "https://learn.nvidia.com/certificates?id=6185c11324d7462a813976e1b2427a29" },
     { issuer: "Kaggle · Google", title: "AI Agents Intensive Course", url: "https://www.kaggle.com/certification/badges/nicolacalzone/105" },
-    { issuer: "GitHub", title: "GitHub Foundations" },
     { issuer: "Anthropic", title: "Introduction to Model Context Protocol", url: "https://academy.claude.com/verify/64565eed10fd9588f5431d01127b3a6a" },
     { issuer: "Anthropic", title: "MCP: Advanced Topics", url: "https://academy.claude.com/verify/00d87be051ebe9cd8f3d944d60fe1142" },
     { issuer: "Anthropic", title: "Claude Code 101", url: "https://academy.claude.com/verify/fb49037ceff54fb7b78a2746c4d19f84" },

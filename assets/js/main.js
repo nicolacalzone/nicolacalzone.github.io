@@ -63,7 +63,6 @@
         line("whoami", esc(p.role)),
         line("cat now.txt", esc(p.now)),
         line("ls focus/", p.focus.map((f) => `<span class="t-item">${esc(f)}</span>`).join("")),
-        line("locale", esc(p.location)),
         `<p><span class="t-prompt">$</span> <span class="cursor" aria-hidden="true"></span></p>`,
       ].join("");
     },
