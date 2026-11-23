@@ -57,13 +57,11 @@
 
     terminal: () => {
       const p = S.profile;
-      const line = (cmd, out) =>
-        `<p><span class="t-prompt">$</span> <span class="t-cmd">${esc(cmd)}</span></p><p class="t-out">${out}</p>`;
+      const row = (cmd, out) => `<div class="facts__row"><dt>${esc(cmd)}</dt><dd>${out}</dd></div>`;
       return [
-        line("whoami", esc(p.role)),
-        line("cat now.txt", esc(p.now)),
-        line("ls focus/", p.focus.map((f) => `<span class="t-item">${esc(f)}</span>`).join("")),
-        `<p><span class="t-prompt">$</span> <span class="cursor" aria-hidden="true"></span></p>`,
+        row("whoami", esc(p.role)),
+        row("cat now.txt", esc(p.now)),
+        row("ls focus/", `<ul class="facts__focus">${p.focus.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>`),
       ].join("");
     },
 
@@ -73,7 +71,7 @@
       S.experience
         .map(
           (e) => `
-        <li class="timeline__item reveal">
+        <li class="timeline__item">
           <div class="timeline__meta">
             <p class="mono timeline__period">${esc(e.period)}</p>
             <p class="timeline__type">${esc(e.type)}</p>
@@ -91,7 +89,7 @@
       S.additionalExperience
         .map(
           (a) => `
-        <article class="mini reveal">
+        <article class="mini">
           <p class="mono mini__period">${esc(a.period)}</p>
           <h4>${esc(a.role)}</h4>
           <p class="mini__org">${esc(a.org)}</p>
@@ -110,15 +108,17 @@
       S.featured
         .map(
           (p, i) => `
-        <article class="card reveal" data-category="${p.category}">
-          <div class="card__top">
-            <span class="mono card__num">${String(i + 1).padStart(2, "0")}</span>
-            <span class="mono card__kind">${esc(p.kind)}</span>
+        <article class="project" data-category="${p.category}">
+          <div class="project__meta">
+            <span class="mono project__num">${String(i + 1).padStart(2, "0")}</span>
+            <span class="mono project__kind">${esc(p.kind)}</span>
           </div>
-          <h3 class="card__title">${esc(p.title)}</h3>
-          <p class="card__desc">${esc(p.description)}</p>
-          ${tags(p.tags)}
-          ${links(p.links, p.title)}
+          <div class="project__body">
+            <h3 class="project__title">${esc(p.title)}</h3>
+            <p class="project__desc">${esc(p.description)}</p>
+            ${tags(p.tags)}
+            ${links(p.links, p.title)}
+          </div>
         </article>`
         )
         .join(""),
@@ -127,14 +127,14 @@
       S.archive
         .map(
           (p) => `
-        <li class="archive__row reveal" data-category="${p.category}">
+        <li class="archive__row" data-category="${p.category}">
           <p class="mono archive__cat">${esc(categoryLabel(p.category))}</p>
           <div class="archive__main">
             <h4 class="archive__title">${esc(p.title)} <span class="archive__kind">· ${esc(p.kind)}</span></h4>
             <p class="archive__desc">${esc(p.description)}</p>
           </div>
           <div class="archive__side">
-            ${tags(p.tags, "tag tag--alt")}
+            ${tags(p.tags)}
             ${links(p.links, p.title)}
           </div>
         </li>`
@@ -145,7 +145,7 @@
       S.skills
         .map(
           (g) => `
-        <div class="skill-group reveal">
+        <div class="skill-group">
           <h3 class="mono skill-group__title">${esc(g.group)}</h3>
           ${tags(g.items, "tag tag--lg")}
         </div>`
@@ -156,7 +156,7 @@
       S.education
         .map(
           (e) => `
-        <li class="edu__item reveal">
+        <li class="edu__item">
           <div class="edu__head">
             <h3 class="edu__degree">${esc(e.degree)}</h3>
             ${e.grade ? `<span class="mono edu__grade">${esc(e.grade)}</span>` : ""}
@@ -349,10 +349,7 @@
       items.forEach((it) => {
         const show = f === "all" || it.dataset.category === f;
         it.hidden = !show;
-        if (show) {
-          visible++;
-          it.classList.add("is-visible");
-        }
+        if (show) visible++;
       });
       const archiveVisible = [...archive.children].some((li) => !li.hidden);
       archiveHead.hidden = !archiveVisible;
@@ -381,12 +378,7 @@
     }
   });
 
-  // Nav: shadow on scroll + active section
-  const nav = document.querySelector(".nav");
-  const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 8);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
+  // Nav: active section
   if ("IntersectionObserver" in window) {
     const navLinks = new Map(
       [...document.querySelectorAll('.nav__menu a[href^="#"]')].map((a) => [a.getAttribute("href").slice(1), a])
@@ -402,19 +394,5 @@
       { rootMargin: "-45% 0px -50% 0px" }
     );
     document.querySelectorAll("main section[id]").forEach((s) => sectionObs.observe(s));
-
-    // Scroll reveal
-    const revealObs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((en) => {
-          if (en.isIntersecting) {
-            en.target.classList.add("is-visible");
-            revealObs.unobserve(en.target);
-          }
-        }),
-      { rootMargin: "0px 0px -8% 0px" }
-    );
-    document.documentElement.classList.add("js-reveal");
-    document.querySelectorAll(".reveal").forEach((el) => revealObs.observe(el));
   }
 })();

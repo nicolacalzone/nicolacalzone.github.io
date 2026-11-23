@@ -1,52 +1,45 @@
 /* Design tokens — the only place raw values live. See DESIGN_SYSTEM.md. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Color — neutrals */
-  --color-bg: #0b0d10;
-  --color-surface: #12151a;
-  --color-surface-raised: #181c22;
-  --color-border: #232831;
-  --color-border-strong: #343b47;
-  --color-text: #e6e8eb;
-  --color-text-muted: #8b93a1;
+  /* Color — warm editorial neutrals */
+  --color-bg: #faf8f5;
+  --color-surface: #ffffff;
+  --color-border: #e8e4df;
+  --color-border-strong: #d1ccc4;
+  --color-text: #1a1918;
+  --color-text-muted: #635f59;
 
-  /* Color — accents */
-  --color-accent: #5eead4;
-  --color-accent-strong: #99f6e4;
-  --color-accent-soft: rgba(94, 234, 212, 0.1);
-  --color-accent-ink: #04201c; /* text on accent fills */
-  --color-accent-2: #a78bfa;
-  --color-accent-2-soft: rgba(167, 139, 250, 0.1);
+  /* Color — single accent (focus, selection, active filter, hover) */
+  --color-accent: #9a3412;
+  --color-accent-soft: rgba(154, 52, 18, 0.1);
+  --color-accent-ink: #faf8f5; /* text on accent fills */
 
-  /* Color — window controls (terminal / viewer chrome) */
-  --color-dot-close: #ff5f57;
-  --color-dot-minimize: #febc2e;
-  --color-dot-expand: #28c840;
+  /* Color — overlays */
+  --color-scrim: rgba(26, 25, 24, 0.6);
 
-  /* Typography */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Typography — two families */
+  --font-text: "Newsreader", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-md: 1.125rem;
-  --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
-  --text-xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
-  --text-2xl: clamp(2rem, 1.5rem + 2.2vw, 3rem);
-  --text-3xl: clamp(2.5rem, 1.6rem + 4.2vw, 4.75rem);
+  --text-base: 1.0625rem;
+  --text-md: 1.1875rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem); /* h2 */
+  --text-2xl: clamp(2.25rem, 1.8rem + 2vw, 3rem); /* h1 */
 
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
 
-  --leading-tight: 1.1;
+  --leading-tight: 1.15;
   --leading-snug: 1.35;
-  --leading-normal: 1.65;
+  --leading-normal: 1.6;
   --tracking-tight: -0.02em;
-  --tracking-wide: 0.08em;
+  --measure: 65ch;
 
   /* Spacing — 4px base */
   --space-1: 0.25rem;
@@ -65,25 +58,21 @@
   --container-max: 72rem;
   --gutter: 1rem;
   --nav-height: 4rem;
+  --label-col: 14rem; /* section heading column */
+  --meta-col: 10rem; /* period / category column inside rows */
 
   /* Radius & borders */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-pill: 999px;
+  --radius-sm: 2px;
   --border-width: 1px;
 
-  /* Elevation */
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 32px -16px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 0 1px var(--color-accent-soft), 0 16px 40px -20px rgba(94, 234, 212, 0.35);
-
-  /* Motion */
-  --duration-fast: 150ms;
-  --duration-base: 250ms;
-  --duration-slow: 600ms;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Motion — snappy ease-out only */
+  --duration-fast: 140ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 
   /* Focus */
-  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
 }
 
 @media (min-width: 720px) {
@@ -94,6 +83,5 @@
   :root {
     --duration-fast: 0ms;
     --duration-base: 0ms;
-    --duration-slow: 0ms;
   }
 }
