@@ -2,6 +2,11 @@
 // Links set to "#" are placeholders (TODO) and are hidden on the page until filled in.
 
 window.SITE = {
+  // Optional. URL of the deployed counter Worker's /cv-download route (see worker/README.md). Empty = no tracking.
+  config: {
+    cvDownloadEndpoint: "https://cv-download-counter.nicolacalzone14.workers.dev/cv-download",
+  },
+
   profile: {
     name: "Nicola Calzone",
     role: "Software & AI Engineer",

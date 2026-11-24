@@ -62,7 +62,13 @@
         <ul class="social" data-render="social" aria-label="Profiles"></ul>
       </div>
 
-      <dl class="facts" aria-label="Quick facts" data-render="terminal"></dl>
+      <div class="window" role="group" aria-label="Quick facts">
+        <div class="window__bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <span class="window__title">~/nicola - zsh</span>
+        </div>
+        <dl class="facts" data-render="terminal"></dl>
+      </div>
     </section>
 
     <section class="section container" id="about" aria-labelledby="about-title">
@@ -128,12 +134,18 @@
     </div>
   </footer>
 
-  <dialog class="cv-viewer" id="cv-viewer" aria-label="Curriculum vitae">
+  <dialog class="cv-viewer" id="cv-viewer" aria-label="Curriculum vitae" tabindex="-1">
     <div class="cv-viewer__bar">
+      <div class="cv-viewer__dots">
+        <button class="cv-viewer__dot cv-viewer__dot--close" type="button" data-cv-close aria-label="Close CV"></button>
+        <span class="cv-viewer__dot cv-viewer__dot--min" aria-hidden="true"></span>
+        <span class="cv-viewer__dot cv-viewer__dot--max" aria-hidden="true"></span>
+      </div>
       <span class="cv-viewer__title" data-cv-title>~/nicola/cv.pdf</span>
-      <button class="cv-viewer__close" type="button" data-cv-close aria-label="Close CV">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
-      </button>
+      <a class="cv-viewer__download" data-cv-download href="cv/Nicola_Calzone_CV_English.pdf" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+        <span data-cv-download-label>Download PDF (English)</span>
+      </a>
     </div>
     <div class="cv-viewer__tabs" role="group" aria-label="CV language" data-cv-tabs></div>
     <div class="cv-viewer__body" data-cv-body></div>

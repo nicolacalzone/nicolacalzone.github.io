@@ -27,8 +27,8 @@
   const ext = (url) => (isExt(url) ? ' target="_blank" rel="noopener noreferrer"' : "");
   const newTab = (url) => (isExt(url) ? " (opens in new tab)" : "");
 
-  const tags = (list, cls = "tag") =>
-    `<ul class="tags" aria-label="Technologies">${list.map((t) => `<li class="${cls}">${esc(t)}</li>`).join("")}</ul>`;
+  const tags = (list, cls = "tag", ulCls = "tags") =>
+    `<ul class="${ulCls}" aria-label="Technologies">${list.map((t) => `<li class="${cls}">${esc(t)}</li>`).join("")}</ul>`;
 
   const links = (list, title) => {
     const real = (list || []).filter((l) => isReal(l.url));
@@ -147,7 +147,7 @@
           (g) => `
         <div class="skill-group">
           <h3 class="mono skill-group__title">${esc(g.group)}</h3>
-          ${tags(g.items, "tag tag--lg")}
+          ${tags(g.items, "tag tag--lg", "tags tags--lg")}
         </div>`
         )
         .join(""),
@@ -199,6 +199,25 @@
   // CV viewer (PDF.js, rendered in-page; falls back to opening the PDF in a new tab)
   const PDFJS_BASE = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
   const cvDialog = document.getElementById("cv-viewer");
+  const dlLink = cvDialog.querySelector("[data-cv-download]");
+  const dlLabel = dlLink.querySelector("[data-cv-download-label]");
+  const setDownload = (id) => {
+    const cv = cvFor(id);
+    dlLink.setAttribute("href", cv.file);
+    dlLink.setAttribute("download", cv.file.split("/").pop());
+    dlLabel.textContent = `Download PDF (${cv.label})`;
+  };
+  setDownload(cvLang);
+
+  // Anonymous-ish download counter: posts the language to the optional endpoint (see worker/README.md).
+  // Server-side it records IP, location and browser. Does nothing until config.cvDownloadEndpoint is set.
+  dlLink.addEventListener("click", () => {
+    const url = (S.config || {}).cvDownloadEndpoint;
+    if (!url) return;
+    try {
+      fetch(url, { method: "POST", body: JSON.stringify({ lang: cvLang }), headers: { "content-type": "text/plain" }, keepalive: true }).catch(() => {});
+    } catch (e) {}
+  });
   const cvBody = cvDialog.querySelector("[data-cv-body]");
   const cvTabs = cvDialog.querySelector("[data-cv-tabs]");
   cvTabs.innerHTML = CVS.map(
@@ -288,10 +307,12 @@
     } catch (e) {}
     cvTabs.querySelectorAll("[data-cv-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cvLang === id)));
     document.querySelectorAll("[data-cv]").forEach((el) => el.setAttribute("href", cvFor(id).file));
+    setDownload(id);
     cvDialog.querySelector("[data-cv-title]").textContent = `~/nicola/${cvFor(id).file.split("/").pop()}`;
     cvBody.innerHTML = '<p class="cv-viewer__msg">Loading CV…</p>';
     if (!cvDialog.open) {
       cvDialog.showModal();
+      cvDialog.focus(); // keep initial focus on the window itself, not the first control
       document.body.classList.add("has-viewer");
     }
     try {

@@ -15,6 +15,12 @@
   --color-accent-soft: rgba(154, 52, 18, 0.1);
   --color-accent-ink: #faf8f5; /* text on accent fills */
 
+  /* Color — window chrome (quick-facts window) */
+  --color-surface-sunken: #f2efea;
+  --color-dot-close: #ff5f57;
+  --color-dot-minimize: #febc2e;
+  --color-dot-expand: #28c840;
+
   /* Color — overlays */
   --color-scrim: rgba(26, 25, 24, 0.6);
 
@@ -63,7 +69,11 @@
 
   /* Radius & borders */
   --radius-sm: 2px;
+  --radius-window: 10px;
   --border-width: 1px;
+
+  /* Elevation — window only */
+  --shadow-window: 0 16px 32px -20px rgba(26, 25, 24, 0.35);
 
   /* Motion — snappy ease-out only */
   --duration-fast: 140ms;

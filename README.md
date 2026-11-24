@@ -21,8 +21,9 @@ assets/css/tokens.css  design tokens
 assets/css/main.css    components & layout
 assets/js/data.js      content
 cv/                    CV PDFs, pushed by the CV repo's CI
-assets/js/main.js      rendering, project filter, nav, scroll reveal
+assets/js/main.js      rendering, project filter, nav, CV viewer
 DESIGN_SYSTEM.md       tokens & component rules
+worker/                optional Cloudflare Worker that counts CV downloads (see worker/README.md)
 ```
 
 ## Deploy
